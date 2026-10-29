@@ -1,0 +1,6 @@
+#!/usr/bin/python3 -I
+import sys
+sys.path.insert(0,'/usr/lib/mambo/vendor')
+sys.path.insert(0,'/usr/lib/mambo')
+from mambo.qt_app import main
+raise SystemExit(main())

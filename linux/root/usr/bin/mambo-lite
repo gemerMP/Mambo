@@ -1,0 +1,5 @@
+#!/usr/bin/python3 -I
+import sys
+sys.path.insert(0,'/usr/lib/mambo')
+from mambo.__main__ import main
+raise SystemExit(main())

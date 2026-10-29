@@ -1,0 +1,207 @@
+[
+  {
+    "name": "conf",
+    "raw": "[Interface]\nPrivateKey = //v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//s=\nAddress = 10.2.0.2/32\nDNS = 10.2.0.1\n[Peer]\nPublicKey = AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=\nEndpoint = host.test:51820\nAllowedIPs = 0.0.0.0/0, ::/0\n",
+    "valid": true
+  },
+  {
+    "name": "bare-ip",
+    "raw": "[Interface]\nPrivateKey = //v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//s=\nAddress = 10.2.0.2\nDNS = 10.2.0.1\n[Peer]\nPublicKey = AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=\nEndpoint = host.test:51820\nAllowedIPs = 0.0.0.0/0, ::/0\n",
+    "valid": true
+  },
+  {
+    "name": "v6-only",
+    "raw": "[Interface]\nPrivateKey = //v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//s=\nAddress = fd23::2\nDNS = fd23::1\n[Peer]\nPublicKey = AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=\nEndpoint = host.test:51820\nAllowedIPs = 0.0.0.0/0, ::/0\n",
+    "valid": true
+  },
+  {
+    "name": "repeated-address",
+    "raw": "[Interface]\nPrivateKey = //v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//s=\nAddress = 10.2.0.2\nAddress = fd23::2\nDNS = 10.2.0.1\n[Peer]\nPublicKey = AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=\nEndpoint = host.test:51820\nAllowedIPs = 0.0.0.0/0, ::/0\n",
+    "valid": true
+  },
+  {
+    "name": "repeated-dns",
+    "raw": "[Interface]\nPrivateKey = //v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//s=\nAddress = 10.2.0.2/32\nDNS = 10.2.0.1\nDNS = fd23::1\n[Peer]\nPublicKey = AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=\nEndpoint = host.test:51820\nAllowedIPs = 0.0.0.0/0, ::/0\n",
+    "valid": true
+  },
+  {
+    "name": "allowed-lines",
+    "raw": "[Interface]\nPrivateKey = //v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//s=\nAddress = 10.2.0.2/32\nDNS = 10.2.0.1\n[Peer]\nPublicKey = AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=\nEndpoint = host.test:51820\nAllowedIPs = 0.0.0.0/0\nAllowedIPs = ::/0\n",
+    "valid": true
+  },
+  {
+    "name": "reserved-conf",
+    "raw": "[Interface]\nPrivateKey = //v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//s=\nAddress = 10.2.0.2/32\nDNS = 10.2.0.1\nReserved = 1,2,3\n[Peer]\nPublicKey = AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=\nEndpoint = host.test:51820\nAllowedIPs = 0.0.0.0/0, ::/0\n",
+    "valid": true
+  },
+  {
+    "name": "reserved-peer",
+    "raw": "[Interface]\nPrivateKey = //v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//s=\nAddress = 10.2.0.2/32\nDNS = 10.2.0.1\n[Peer]\nPublicKey = AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=\nEndpoint = host.test:51820\nAllowedIPs = 0.0.0.0/0, ::/0\nReserved = AQID\n",
+    "valid": true
+  },
+  {
+    "name": "psk",
+    "raw": "[Interface]\nPrivateKey = //v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//s=\nAddress = 10.2.0.2/32\nDNS = 10.2.0.1\n[Peer]\nPublicKey = AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=\nEndpoint = host.test:51820\nAllowedIPs = 0.0.0.0/0, ::/0\nPresharedKey = //v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//s=\n",
+    "valid": true
+  },
+  {
+    "name": "ipv6-endpoint",
+    "raw": "[Interface]\nPrivateKey = //v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//s=\nAddress = 10.2.0.2/32\nDNS = 10.2.0.1\n[Peer]\nPublicKey = AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=\nEndpoint = [::1]:23456\nAllowedIPs = 0.0.0.0/0, ::/0\n",
+    "valid": true
+  },
+  {
+    "name": "comments",
+    "raw": "\ufeff# hello\n[Interface]\nPrivateKey = //v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//s=\nAddress = 10.2.0.2/32 # comment\nDNS = 10.2.0.1\n[Peer]\nPublicKey = AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=\nEndpoint = host.test:51820\nAllowedIPs = 0.0.0.0/0, ::/0\n",
+    "valid": true
+  },
+  {
+    "name": "two-peers",
+    "raw": "[Interface]\nPrivateKey = //v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//s=\nAddress = 10.2.0.2/32\nDNS = 10.2.0.1\n[Peer]\nPublicKey = AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=\nEndpoint = host.test:51820\nAllowedIPs = 0.0.0.0/0, ::/0\n[Peer]\nPublicKey = //v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//s=\nEndpoint = 127.0.0.1:23457\nAllowedIPs = 10.99.0.0/16\n",
+    "valid": true
+  },
+  {
+    "name": "raw-slash-plus",
+    "raw": "wg:////v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//s=@host.test:51820?publickey=AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=&address=10.2.0.2",
+    "valid": true
+  },
+  {
+    "name": "encoded-secret",
+    "raw": "wg://%2F%2Fv%2F%2B%2F%2F7%2F%2Fv%2F%2B%2F%2F7%2F%2Fv%2F%2B%2F%2F7%2F%2Fv%2F%2B%2F%2F7%2F%2Fv%2F%2B%2F%2F7%2F%2Fs=@host.test:51820?publickey=AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=&address=10.2.0.2",
+    "valid": true
+  },
+  {
+    "name": "urlsafe",
+    "raw": "wg://__v_-__7__v_-__7__v_-__7__v_-__7__v_-__7__s@host.test:51820?publickey=AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=&address=10.2.0.2",
+    "valid": true
+  },
+  {
+    "name": "long-scheme",
+    "raw": "wireguard:////v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//s=@host.test:51820?publickey=AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=&address=10.2.0.2",
+    "valid": true
+  },
+  {
+    "name": "aliases",
+    "raw": "wg:////v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//s=@host.test:51820?public_key=AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=&local_address=10.2.0.2&psk=//v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//s=",
+    "valid": true
+  },
+  {
+    "name": "repeat-query",
+    "raw": "wg:////v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//s=@host.test:51820?publickey=AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=&address=10.2.0.2&address=fd23::2&dns=10.2.0.1&dns=fd23::1",
+    "valid": true
+  },
+  {
+    "name": "reserved-json",
+    "raw": "wg:////v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//s=@host.test:51820?publickey=AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=&address=10.2.0.2&reserved=%5B1%2C2%2C3%5D",
+    "valid": true
+  },
+  {
+    "name": "reserved-base64",
+    "raw": "wg:////v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//s=@host.test:51820?publickey=AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=&address=10.2.0.2&reserved=AQID",
+    "valid": true
+  },
+  {
+    "name": "uri-ipv6",
+    "raw": "wg:////v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//s=@[2001:db8::1]:51820?publickey=AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=&address=10.2.0.2",
+    "valid": true
+  },
+  {
+    "name": "bad-key",
+    "raw": "wg://short@host.test:51820?publickey=AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=&address=10.2.0.2",
+    "valid": false
+  },
+  {
+    "name": "bad-pub",
+    "raw": "wg:////v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//s=@host.test:51820?publickey=short&address=10.2.0.2",
+    "valid": false
+  },
+  {
+    "name": "bad-address",
+    "raw": "wg:////v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//s=@host.test:51820?publickey=AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=&address=example.com",
+    "valid": false
+  },
+  {
+    "name": "bad-prefix",
+    "raw": "wg:////v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//s=@host.test:51820?publickey=AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=&address=10.2.0.2/90",
+    "valid": false
+  },
+  {
+    "name": "bad-port",
+    "raw": "wg:////v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//s=@host.test:99999?publickey=AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=&address=10.2.0.2",
+    "valid": false
+  },
+  {
+    "name": "bad-reserved",
+    "raw": "wg:////v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//s=@host.test:51820?publickey=AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=&address=10.2.0.2&reserved=1,2,300",
+    "valid": false
+  },
+  {
+    "name": "short-reserved",
+    "raw": "wg:////v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//s=@host.test:51820?publickey=AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=&address=10.2.0.2&reserved=1,2",
+    "valid": false
+  },
+  {
+    "name": "bad-mtu",
+    "raw": "wg:////v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//s=@host.test:51820?publickey=AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=&address=10.2.0.2&mtu=100",
+    "valid": false
+  },
+  {
+    "name": "bad-keepalive",
+    "raw": "wg:////v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//s=@host.test:51820?publickey=AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=&address=10.2.0.2&keepalive=-1",
+    "valid": false
+  },
+  {
+    "name": "unknown-query",
+    "raw": "wg:////v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//s=@host.test:51820?publickey=AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=&address=10.2.0.2&jc=3",
+    "valid": false
+  },
+  {
+    "name": "hook",
+    "raw": "[Interface]\nPrivateKey = //v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//s=\nAddress = 10.2.0.2/32\nDNS = 10.2.0.1\n[Peer]\nPublicKey = AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=\nEndpoint = host.test:51820\nAllowedIPs = 0.0.0.0/0, ::/0\nPostUp = echo hi\n",
+    "valid": false
+  },
+  {
+    "name": "duplicate-key",
+    "raw": "[Interface]\nPrivateKey = //v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//s=\nAddress = 10.2.0.2/32\nDNS = 10.2.0.1\n[Peer]\nPublicKey = AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=\nEndpoint = host.test:51820\nAllowedIPs = 0.0.0.0/0, ::/0\nPublicKey = AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=\n",
+    "valid": false
+  },
+  {
+    "name": "dns-domain",
+    "raw": "[Interface]\nPrivateKey = //v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//s=\nAddress = 10.2.0.2/32\nDNS = example.com\n[Peer]\nPublicKey = AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=\nEndpoint = host.test:51820\nAllowedIPs = 0.0.0.0/0, ::/0\n",
+    "valid": false
+  },
+  {
+    "name": "no-endpoint",
+    "raw": "[Interface]\nPrivateKey = //v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//s=\nAddress = 10.2.0.2/32\nDNS = 10.2.0.1\n[Peer]\nPublicKey = AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=\nAllowedIPs = 0.0.0.0/0, ::/0\n",
+    "valid": false
+  },
+  {
+    "name": "no-address",
+    "raw": "[Interface]\nPrivateKey = //v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//s=\nDNS = 10.2.0.1\n[Peer]\nPublicKey = AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=\nEndpoint = host.test:51820\nAllowedIPs = 0.0.0.0/0, ::/0\n",
+    "valid": false
+  },
+  {
+    "name": "no-peer",
+    "raw": "[Interface]\nPrivateKey = //v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//s=\nAddress = 10.2.0.2/32\nDNS = 10.2.0.1\n",
+    "valid": false
+  },
+  {
+    "name": "unknown-section",
+    "raw": "[Interface]\nPrivateKey = //v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//s=\nAddress = 10.2.0.2/32\nDNS = 10.2.0.1\n[Peer]\nPublicKey = AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=\nEndpoint = host.test:51820\nAllowedIPs = 0.0.0.0/0, ::/0\n[Other]\nx = 1",
+    "valid": false
+  },
+  {
+    "name": "duplicate-interface",
+    "raw": "[Interface]\nPrivateKey = //v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//s=\nAddress = 10.2.0.2/32\nDNS = 10.2.0.1\n[Peer]\nPublicKey = AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=\nEndpoint = host.test:51820\nAllowedIPs = 0.0.0.0/0, ::/0\n[Interface]\n",
+    "valid": false
+  },
+  {
+    "name": "invalid-ip",
+    "raw": "wg:////v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//s=@host.test:51820?publickey=AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=&address=10.2.0.999",
+    "valid": false
+  },
+  {
+    "name": "unbracketed-ipv6",
+    "raw": "[Interface]\nPrivateKey = //v/+//7//v/+//7//v/+//7//v/+//7//v/+//7//s=\nAddress = 10.2.0.2/32\nDNS = 10.2.0.1\n[Peer]\nPublicKey = AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8=\nEndpoint = 2001:db8::1:51820\nAllowedIPs = 0.0.0.0/0, ::/0\n",
+    "valid": false
+  }
+]

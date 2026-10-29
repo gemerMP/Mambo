@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Mambo
+GenericName=Proxy Client
+GenericName[ru]=Клиент прокси
+Comment=A little kindness, a simpler connection
+Comment[ru]=Уютный клиент для твоих подключений
+Exec=mambo
+Icon=org.mambo.Client
+Terminal=false
+Categories=Network;
+StartupNotify=true
+StartupWMClass=org.mambo.Client
