@@ -1,0 +1,18 @@
+# Temporary files
+*.log
+*.db
+*.sqlite
+*.sqlite3
+__pycache__/
+*.pyc
+build/
+dist/
+
+# Private files
+.env
+.env.*
+*.pem
+*.key
+*.keystore
+*.jks
+*Signing-Key*
